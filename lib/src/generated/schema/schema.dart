@@ -4,7 +4,7 @@
 // ignore_for_file: invalid_annotation_target
 
 
-      library ollama_schema;
+      library gigachat_schema;
 
             import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -16,3 +16,16 @@
 part 'models.dart';
 part 'file_id.dart';
 part 'chat.dart';
+part 'context.dart';
+part 'message.dart';
+part 'messages_res.dart';
+part 'usage.dart';
+part 'chat_completion.dart';
+part 'choices.dart';
+part 'token.dart';
+part 'tokens_count.dart';
+part 'embedding.dart';
+part 'tokens_count_body.dart';
+part 'embeddings_body.dart';
+part 'function_call_custom_function.dart';
+part 'function_call_none_auto.dart';

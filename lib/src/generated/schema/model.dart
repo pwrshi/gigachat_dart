@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
 // ignore_for_file: invalid_annotation_target
-part of ollama_schema;
+part of gigachat_schema;
 
     // ==========================================
     // CLASS: Model
@@ -18,7 +18,7 @@ part of ollama_schema;
       /// Factory constructor for Model
       const factory Model (
     {/// Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
-@JsonKey(includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue,) ModelId ? id,
+@JsonKey(includeIfNull: false) String ? id,
 
 /// Тип сущности в ответе, например, модель
 @JsonKey(includeIfNull: false) String ? object,
@@ -51,19 +51,4 @@ part of ollama_schema;
     }
     }
 
-        // ==========================================
-    // ENUM: ModelId
-    // ==========================================
     
-    /// Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
-    enum ModelId {
-        @JsonValue('GigaChat')
-    gigaChat,
-        @JsonValue('GigaChat:latest')
-    gigaChat:latest,
-        @JsonValue('GigaChat-Plus')
-    gigaChatPlus,
-        @JsonValue('GigaChat-Pro')
-    gigaChatPro,
-    }
-

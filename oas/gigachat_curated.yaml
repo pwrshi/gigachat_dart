@@ -15,7 +15,7 @@ info:
     ## Получение токена доступа и авторизация запросов
 
     Запросы к GigaChat API авторизуются с помощью токена доступа по протоколу [OAuth 2.0](https://tools.ietf.org/html/rfc6749).
-    Токен доступа передается в заголовке `Authorization`:
+    access_token передается в заголовке `Authorization`:
     
     ```sh
     curl -L -X GET 'https://gigachat.devices.sberbank.ru/api/v1/models' \
@@ -42,7 +42,7 @@ info:
       * `GIGACHAT_API_PERS` — доступ для физических лиц.
       * `GIGACHAT_API_CORP` — доступ для ИП и юридических лиц.
 
-    При успешном выполнении запроса GigaChat API вернет токен доступа, который действует в течение 30 минут:
+    При успешном выполнении запроса GigaChat API вернет access_token, который действует в течение 30 минут:
 
     ```json
     {
@@ -93,7 +93,7 @@ paths:
             example: 6f0b1291-c7f3-43c6-bb2e-9f3efb2dc98e
       requestBody:
          content:
-            'application/x-www-form-urlencoded':
+            application/x-www-form-urlencoded:
               schema:
                type: object
                properties:
@@ -120,12 +120,12 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
       security:
-        - Базовая аутентификация: [client_id, client_secret]
+        - BasicAuthorization: [client_id, client_secret]
       operationId: postToken
-      summary: Получить токен доступа
+      summary: Получить access_token
       description: |
-        Возвращает токен доступа для авторизации запросов к API.
-        Токен доступа действителен в течение 30 минут.
+        Возвращает access_token для авторизации запросов к API.
+        access_token действителен в течение 30 минут.
 
         В заголовке `Authorization` нужно передать авторизационные данные — строку, полученную в результате кодирования в base64 идентификатора (Client ID) и клиентского ключа (Client Secret) API.
 
@@ -155,7 +155,7 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
       security:
-        - Токен доступа: []
+        - access_token: []
       operationId: postTokensCount
       summary: Подсчитать количество токенов
       description: Возвращает объект с информацией о количестве токенов, подсчитанных заданной моделью в строках. Строки передаются в массиве `input`.
@@ -173,7 +173,7 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
       security:
-        - Токен доступа: []
+        - access_token: []
       operationId: getModels
       summary: Получить список моделей
       description: Возвращает массив объектов с данными доступных моделей. Описание доступных моделей в разделе [Модели GigaChat](/ru/gigachat/models).
@@ -204,7 +204,7 @@ paths:
         '404':
           $ref: '#/components/responses/NoSuchModel'
       security:
-        - Токен доступа: []
+        - access_token: []
       operationId: getFileId
       summary: Получить изображение по идентификатору
       description: |
@@ -248,7 +248,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalError'
       security:
-        - Токен доступа: []
+        - access_token: []
       operationId: postChat
       summary: Получить ответ модели на сообщения
       description: Возвращает ответ модели с учетом переданных сообщений.
@@ -269,7 +269,7 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
       security:
-        - Токен доступа: []
+        - access_token: []
       operationId: postEmbeddings
       summary: Создать эмбеддинг
       description: |
@@ -284,11 +284,6 @@ components:
         id:
           description: Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
           type: string
-          enum:
-            - GigaChat
-            - GigaChat:latest
-            - GigaChat-Plus
-            - GigaChat-Pro
           example: GigaChat
         object:
           description: Тип сущности в ответе, например, модель
@@ -298,11 +293,7 @@ components:
           description: Владелец модели
           type: string
           example: salutedevices
-    ModelId:
-      type: object
-      properties:
-        model:
-          $ref: '#/components/schemas/Model/properties/id'
+    
     Models:
       type: object
       properties:
@@ -334,7 +325,9 @@ components:
       type: object
       properties:
         model:
-          $ref: '#/components/schemas/Model/properties/id'
+          description: Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
+          type: string
+          example: GigaChat
         messages:
           type: array
           description: Массив сообщений, которыми пользователь обменивался с моделью.
@@ -470,6 +463,15 @@ components:
             Например, если указать `1`, сообщения будут приходить каждую секунду, но размер каждого из них будет больше, так как за секунду накапливается много токенов.
           default: 0
           example: 0
+    Context:
+      type: array
+      items:
+        type: object
+        properties: {}
+      description: |
+        Массив сообщений, описывающих работу [встроенных функций](/ru/gigachat/api/function-calling#vyzov-vstroennykh-funktsiy).
+
+        Для сохранения контекста, обязательно передавайте массив в запросе на генерацию, в сообщении с ролью `assistant`.
     message:
       type: object
       properties:
@@ -498,7 +500,7 @@ components:
 
             В остальных случаях содержит либо системный промпт (сообщение с ролью `system`), либо текст сообщения пользователя или модели.
         data_for_context:
-          $ref: '#/components/schemas/MessagesRes/properties/data_for_context'
+          $ref: '#/components/schemas/Context'
     MessagesRes:
       type: object
       description: Сгенерированное сообщение.
@@ -521,14 +523,8 @@ components:
             В сообщениях с ролью `function_in_progress` содержит информацию о том, сколько времени осталось до завершения работы встроенной функции.
           example: 'Здравствуйте! К сожалению, я не могу дать точный ответ на этот вопрос, так как это зависит от многих факторов. Однако обычно релиз новых функций и обновлений в GigaChat происходит постепенно и незаметно для пользователей. Рекомендую следить за новостями и обновлениями проекта в официальном сообществе GigaChat или на сайте разработчиков.'
         data_for_context:
-          type: array
-          items:
-            type: object
-            properties: {}
-          description: |
-            Массив сообщений, описывающих работу [встроенных функций](/ru/gigachat/api/function-calling#vyzov-vstroennykh-funktsiy).
+          $ref: '#/components/schemas/Context'
 
-            Для сохранения контекста, обязательно передавайте массив в запросе на генерацию, в сообщении с ролью `assistant`.
     Usage:
       type: object
       description: Данные об использовании модели.
@@ -567,7 +563,9 @@ components:
           description: Дата и время создания ответа в формате Unix time.
           example: 1678878333
         model:
-          $ref: '#/components/schemas/Model/properties/id'
+          description: Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
+          type: string
+          example: GigaChat
         usage:
           $ref: '#/components/schemas/Usage'
         object:
@@ -603,7 +601,7 @@ components:
     Token:
       type: object
       properties:
-        Токен доступа:
+        access_token:
           type: string
           description: Токен для авторизации запросов.
           example: >-
@@ -743,7 +741,7 @@ components:
     ValidationError:
       description: Validation error
   securitySchemes:
-    Базовая аутентификация:
+    BasicAuthorization:
       description: |
         Базовая (Basic) аутентификация с помощью авторизационных данных — строки, полученной в результате кодирования в base64 идентификатора (Client ID) и клиентского ключа (Client Secret) API.
 
@@ -756,7 +754,7 @@ components:
         </Admonition>
       scheme: basic
       type: http
-    Токен доступа:
+    access_token:
       description: Аутентификация с помощью токена доступа. Используется во всех запросах к GigaChat API, кроме запроса на [получение токена доступа](/ru/gigachat/api/reference/rest/post-token).
       type: http
       scheme: bearer
