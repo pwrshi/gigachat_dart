@@ -4,55 +4,54 @@
 // ignore_for_file: invalid_annotation_target
 part of gigachat_schema;
 
-    // ==========================================
-    // CLASS: Usage
-    // ==========================================
-    
-    /// Данные об использовании модели.
-    @freezed
-    class Usage with _$Usage  {
-      
-      
-      const Usage._();
+// ==========================================
+// CLASS: Usage
+// ==========================================
 
-      /// Factory constructor for Usage
-      const factory Usage (
-    {/// Количество токенов во входящем сообщении (роль `user`).
-@JsonKey(name: 'prompt_tokens', includeIfNull: false) int ? promptTokens,
+/// Данные об использовании модели.
+@freezed
+class Usage with _$Usage {
+  const Usage._();
 
-/// Количество токенов, сгенерированных моделью (роль `assistant`).
-@JsonKey(name: 'completion_tokens', includeIfNull: false) int ? completionTokens,
+  /// Factory constructor for Usage
+  const factory Usage({
+    /// Количество токенов во входящем сообщении (роль `user`).
+    @JsonKey(name: 'prompt_tokens', includeIfNull: false) int? promptTokens,
 
-/// Общее количество токенов.
-@JsonKey(name: 'total_tokens', includeIfNull: false) int ? totalTokens,
+    /// Количество токенов, сгенерированных моделью (роль `assistant`).
+    @JsonKey(name: 'completion_tokens', includeIfNull: false)
+    int? completionTokens,
 
-/// Количество токенов в системном промпте (роль `system`).
-@JsonKey(name: 'system_tokens', includeIfNull: false) int ? systemTokens,
+    /// Общее количество токенов.
+    @JsonKey(name: 'total_tokens', includeIfNull: false) int? totalTokens,
 
-    }) = _Usage;
+    /// Количество токенов в системном промпте (роль `system`).
+    @JsonKey(name: 'system_tokens', includeIfNull: false) int? systemTokens,
+  }) = _Usage;
 
-    /// Object construction from a JSON representation
-    factory Usage.fromJson(Map<String, dynamic> json) => _$UsageFromJson(json);
+  /// Object construction from a JSON representation
+  factory Usage.fromJson(Map<String, dynamic> json) => _$UsageFromJson(json);
 
-    /// List of all property names of schema
-    static const List<String> propertyNames = ['prompt_tokens','completion_tokens','total_tokens','system_tokens'];
+  /// List of all property names of schema
+  static const List<String> propertyNames = [
+    'prompt_tokens',
+    'completion_tokens',
+    'total_tokens',
+    'system_tokens'
+  ];
 
-    
+  /// Perform validations on the schema property values
+  String? validateSchema() {
+    return null;
+  }
 
-    /// Perform validations on the schema property values
-    String? validateSchema(){
-      
-      return null;
-    }
-  
-    /// Map representation of object (not serialized)
-    Map<String,dynamic> toMap(){
-      return {'prompt_tokens': promptTokens,
-'completion_tokens': completionTokens,
-'total_tokens': totalTokens,
-'system_tokens': systemTokens,
-};
-    }
-    }
-
-    
+  /// Map representation of object (not serialized)
+  Map<String, dynamic> toMap() {
+    return {
+      'prompt_tokens': promptTokens,
+      'completion_tokens': completionTokens,
+      'total_tokens': totalTokens,
+      'system_tokens': systemTokens,
+    };
+  }
+}

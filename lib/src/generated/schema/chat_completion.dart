@@ -4,59 +4,59 @@
 // ignore_for_file: invalid_annotation_target
 part of gigachat_schema;
 
-    // ==========================================
-    // CLASS: ChatCompletion
-    // ==========================================
-    
-    /// No Description
-    @freezed
-    class ChatCompletion with _$ChatCompletion  {
-      
-      
-      const ChatCompletion._();
+// ==========================================
+// CLASS: ChatCompletion
+// ==========================================
 
-      /// Factory constructor for ChatCompletion
-      const factory ChatCompletion (
-    {/// Массив ответов модели.
-@JsonKey(includeIfNull: false) List<Choices> ? choices,
+/// No Description
+@freezed
+class ChatCompletion with _$ChatCompletion {
+  const ChatCompletion._();
 
-/// Дата и время создания ответа в формате Unix time.
-@JsonKey(includeIfNull: false) int ? created,
+  /// Factory constructor for ChatCompletion
+  const factory ChatCompletion({
+    /// Массив ответов модели.
+    @JsonKey(includeIfNull: false) List<Choices>? choices,
 
-/// Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
-@JsonKey(includeIfNull: false) String ? model,
+    /// Дата и время создания ответа в формате Unix time.
+    @JsonKey(includeIfNull: false) int? created,
 
-/// Данные об использовании модели.
- @JsonKey(includeIfNull: false) Usage? usage,
+    /// Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
+    @JsonKey(includeIfNull: false) String? model,
 
-/// Название вызываемого метода.
-@JsonKey(includeIfNull: false) String ? object,
+    /// Данные об использовании модели.
+    @JsonKey(includeIfNull: false) Usage? usage,
 
-    }) = _ChatCompletion;
+    /// Название вызываемого метода.
+    @JsonKey(includeIfNull: false) String? object,
+  }) = _ChatCompletion;
 
-    /// Object construction from a JSON representation
-    factory ChatCompletion.fromJson(Map<String, dynamic> json) => _$ChatCompletionFromJson(json);
+  /// Object construction from a JSON representation
+  factory ChatCompletion.fromJson(Map<String, dynamic> json) =>
+      _$ChatCompletionFromJson(json);
 
-    /// List of all property names of schema
-    static const List<String> propertyNames = ['choices','created','model','usage','object'];
+  /// List of all property names of schema
+  static const List<String> propertyNames = [
+    'choices',
+    'created',
+    'model',
+    'usage',
+    'object'
+  ];
 
-    
+  /// Perform validations on the schema property values
+  String? validateSchema() {
+    return null;
+  }
 
-    /// Perform validations on the schema property values
-    String? validateSchema(){
-      
-      return null;
-    }
-  
-    /// Map representation of object (not serialized)
-    Map<String,dynamic> toMap(){
-      return {'choices': choices,
-'created': created,
-'model': model,
-'usage': usage,
-'object': object,
-};
-    }
-    }
-
-    
+  /// Map representation of object (not serialized)
+  Map<String, dynamic> toMap() {
+    return {
+      'choices': choices,
+      'created': created,
+      'model': model,
+      'usage': usage,
+      'object': object,
+    };
+  }
+}

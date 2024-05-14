@@ -280,7 +280,7 @@ class GigachatClient {
         if (body != null) {
           switch (requestType) {
             case 'application/x-www-form-urlencoded':
-              var parts = [];
+              List<String> parts = [];
               Map<String, String> bodyMap =
                   Map<String, String>.from(body as Map<dynamic, dynamic>);
 

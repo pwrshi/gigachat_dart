@@ -4,51 +4,44 @@
 // ignore_for_file: invalid_annotation_target
 part of gigachat_schema;
 
-    // ==========================================
-    // CLASS: Model
-    // ==========================================
-    
-    /// No Description
-    @freezed
-    class Model with _$Model  {
-      
-      
-      const Model._();
+// ==========================================
+// CLASS: Model
+// ==========================================
 
-      /// Factory constructor for Model
-      const factory Model (
-    {/// Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
-@JsonKey(includeIfNull: false) String ? id,
+/// No Description
+@freezed
+class Model with _$Model {
+  const Model._();
 
-/// Тип сущности в ответе, например, модель
-@JsonKey(includeIfNull: false) String ? object,
+  /// Factory constructor for Model
+  const factory Model({
+    /// Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
+    @JsonKey(includeIfNull: false) String? id,
 
-/// Владелец модели
-@JsonKey(name: 'owned_by', includeIfNull: false) String ? ownedBy,
+    /// Тип сущности в ответе, например, модель
+    @JsonKey(includeIfNull: false) String? object,
 
-    }) = _Model;
+    /// Владелец модели
+    @JsonKey(name: 'owned_by', includeIfNull: false) String? ownedBy,
+  }) = _Model;
 
-    /// Object construction from a JSON representation
-    factory Model.fromJson(Map<String, dynamic> json) => _$ModelFromJson(json);
+  /// Object construction from a JSON representation
+  factory Model.fromJson(Map<String, dynamic> json) => _$ModelFromJson(json);
 
-    /// List of all property names of schema
-    static const List<String> propertyNames = ['id','object','owned_by'];
+  /// List of all property names of schema
+  static const List<String> propertyNames = ['id', 'object', 'owned_by'];
 
-    
+  /// Perform validations on the schema property values
+  String? validateSchema() {
+    return null;
+  }
 
-    /// Perform validations on the schema property values
-    String? validateSchema(){
-      
-      return null;
-    }
-  
-    /// Map representation of object (not serialized)
-    Map<String,dynamic> toMap(){
-      return {'id': id,
-'object': object,
-'owned_by': ownedBy,
-};
-    }
-    }
-
-    
+  /// Map representation of object (not serialized)
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'object': object,
+      'owned_by': ownedBy,
+    };
+  }
+}

@@ -1,18 +1,16 @@
-      // coverage:ignore-file
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
 // ignore_for_file: invalid_annotation_target
 
+library gigachat_schema;
 
-      library gigachat_schema;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-            import 'package:freezed_annotation/freezed_annotation.dart';
+part 'schema.g.dart';
+part 'schema.freezed.dart';
 
-      part 'schema.g.dart';
-      part 'schema.freezed.dart';
-
-    
-      part 'model.dart';
+part 'model.dart';
 part 'models.dart';
 part 'file_id.dart';
 part 'chat.dart';

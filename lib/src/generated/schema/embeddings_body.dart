@@ -4,47 +4,41 @@
 // ignore_for_file: invalid_annotation_target
 part of gigachat_schema;
 
-    // ==========================================
-    // CLASS: EmbeddingsBody
-    // ==========================================
-    
-    /// No Description
-    @freezed
-    class EmbeddingsBody with _$EmbeddingsBody  {
-      
-      
-      const EmbeddingsBody._();
+// ==========================================
+// CLASS: EmbeddingsBody
+// ==========================================
 
-      /// Factory constructor for EmbeddingsBody
-      const factory EmbeddingsBody (
-    {/// Название модели, которая будет использована для создания эмбеддинга.
-@Default('Embeddings') String  model,
+/// No Description
+@freezed
+class EmbeddingsBody with _$EmbeddingsBody {
+  const EmbeddingsBody._();
 
-/// Строка или массив строк, которые будут использованы для генерации эмбеддинга.
-required List<String>  input,
+  /// Factory constructor for EmbeddingsBody
+  const factory EmbeddingsBody({
+    /// Название модели, которая будет использована для создания эмбеддинга.
+    @Default('Embeddings') String model,
 
-    }) = _EmbeddingsBody;
+    /// Строка или массив строк, которые будут использованы для генерации эмбеддинга.
+    required List<String> input,
+  }) = _EmbeddingsBody;
 
-    /// Object construction from a JSON representation
-    factory EmbeddingsBody.fromJson(Map<String, dynamic> json) => _$EmbeddingsBodyFromJson(json);
+  /// Object construction from a JSON representation
+  factory EmbeddingsBody.fromJson(Map<String, dynamic> json) =>
+      _$EmbeddingsBodyFromJson(json);
 
-    /// List of all property names of schema
-    static const List<String> propertyNames = ['model','input'];
+  /// List of all property names of schema
+  static const List<String> propertyNames = ['model', 'input'];
 
-    
+  /// Perform validations on the schema property values
+  String? validateSchema() {
+    return null;
+  }
 
-    /// Perform validations on the schema property values
-    String? validateSchema(){
-      
-      return null;
-    }
-  
-    /// Map representation of object (not serialized)
-    Map<String,dynamic> toMap(){
-      return {'model': model,
-'input': input,
-};
-    }
-    }
-
-    
+  /// Map representation of object (not serialized)
+  Map<String, dynamic> toMap() {
+    return {
+      'model': model,
+      'input': input,
+    };
+  }
+}
