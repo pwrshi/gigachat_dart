@@ -8,7 +8,7 @@ http.Client createDefaultHttpClient() {
 }
 
 /// Middleware for HTTP requests.
-Future<http.BaseRequest> onRequestHandler(final http.BaseRequest request) {
+Future<http.BaseRequest> onRequestHandler(http.BaseRequest request) {
   // If the request if bigger than 60KiB set persistentConnection to false
   // Ref: https://github.com/Zekfad/fetch_client#large-payload
   if ((request.contentLength ?? 0) > 61440) {

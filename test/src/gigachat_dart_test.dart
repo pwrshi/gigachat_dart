@@ -5,11 +5,11 @@ import 'package:gigachat_dart/gigachat_dart.dart';
 import 'package:test/test.dart';
 
 void main() {
+  final c = GigachatClient(
+    clientId: Platform.environment['SBER_CLIENT_ID']!,
+    clientSecret: Platform.environment['SBER_CLIENT_SECRET']!,
+  );
   group('GigachatDart simple', () {
-    final c = GigachatClient(
-      clientId: Platform.environment['SBER_CLIENT_ID']!,
-      clientSecret: Platform.environment['SBER_CLIENT_SECRET']!,
-    );
     test('get models', () async {
       final models = await c.getModels();
       expect(models.data, isNotNull);
@@ -39,6 +39,25 @@ void main() {
         model: 'GigaChat-Pro',
       );
       expect(answer, isNotEmpty);
+    });
+  });
+
+  group('GigachatDart streams', () {
+    test('get answer (original)', () async {
+      final messagesIsNull = await c
+          .generateChatCompletionStream(
+            request: Chat(
+              model: 'GigaChat',
+              messages: [
+                Message(
+                  role: MessageRole.user,
+                  content: 'Почему небо голубое?',
+                ),
+              ],
+            ),
+          )
+          .every((element) => element.choices?.first.delta?.content == null);
+      expect(messagesIsNull, false);
     });
   });
 }

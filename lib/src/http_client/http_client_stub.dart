@@ -6,5 +6,5 @@ http.Client createDefaultHttpClient() => throw UnsupportedError(
     );
 
 /// Middleware for HTTP requests.
-Future<http.BaseRequest> onRequestHandler(final http.BaseRequest request) =>
+Future<http.BaseRequest> onRequestHandler(http.BaseRequest request) =>
     throw UnsupportedError('stub');

@@ -2988,6 +2988,308 @@ abstract class _ChatCompletion extends ChatCompletion {
       throw _privateConstructorUsedError;
 }
 
+ChatCompletionStream _$ChatCompletionStreamFromJson(Map<String, dynamic> json) {
+  return _ChatCompletionStream.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ChatCompletionStream {
+  /// Массив ответов модели.
+  @JsonKey(includeIfNull: false)
+  List<ChoicesChunk>? get choices => throw _privateConstructorUsedError;
+
+  /// Дата и время создания ответа в формате Unix time.
+  @JsonKey(includeIfNull: false)
+  int? get created => throw _privateConstructorUsedError;
+
+  /// Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
+  @JsonKey(includeIfNull: false)
+  String? get model => throw _privateConstructorUsedError;
+
+  /// Данные об использовании модели.
+  @JsonKey(includeIfNull: false)
+  Usage? get usage => throw _privateConstructorUsedError;
+
+  /// Название вызываемого метода.
+  @JsonKey(includeIfNull: false)
+  String? get object => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ChatCompletionStreamCopyWith<ChatCompletionStream> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ChatCompletionStreamCopyWith<$Res> {
+  factory $ChatCompletionStreamCopyWith(ChatCompletionStream value,
+          $Res Function(ChatCompletionStream) then) =
+      _$ChatCompletionStreamCopyWithImpl<$Res, ChatCompletionStream>;
+  @useResult
+  $Res call(
+      {@JsonKey(includeIfNull: false) List<ChoicesChunk>? choices,
+      @JsonKey(includeIfNull: false) int? created,
+      @JsonKey(includeIfNull: false) String? model,
+      @JsonKey(includeIfNull: false) Usage? usage,
+      @JsonKey(includeIfNull: false) String? object});
+
+  $UsageCopyWith<$Res>? get usage;
+}
+
+/// @nodoc
+class _$ChatCompletionStreamCopyWithImpl<$Res,
+        $Val extends ChatCompletionStream>
+    implements $ChatCompletionStreamCopyWith<$Res> {
+  _$ChatCompletionStreamCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? choices = freezed,
+    Object? created = freezed,
+    Object? model = freezed,
+    Object? usage = freezed,
+    Object? object = freezed,
+  }) {
+    return _then(_value.copyWith(
+      choices: freezed == choices
+          ? _value.choices
+          : choices // ignore: cast_nullable_to_non_nullable
+              as List<ChoicesChunk>?,
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as int?,
+      model: freezed == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as String?,
+      usage: freezed == usage
+          ? _value.usage
+          : usage // ignore: cast_nullable_to_non_nullable
+              as Usage?,
+      object: freezed == object
+          ? _value.object
+          : object // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UsageCopyWith<$Res>? get usage {
+    if (_value.usage == null) {
+      return null;
+    }
+
+    return $UsageCopyWith<$Res>(_value.usage!, (value) {
+      return _then(_value.copyWith(usage: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$ChatCompletionStreamImplCopyWith<$Res>
+    implements $ChatCompletionStreamCopyWith<$Res> {
+  factory _$$ChatCompletionStreamImplCopyWith(_$ChatCompletionStreamImpl value,
+          $Res Function(_$ChatCompletionStreamImpl) then) =
+      __$$ChatCompletionStreamImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(includeIfNull: false) List<ChoicesChunk>? choices,
+      @JsonKey(includeIfNull: false) int? created,
+      @JsonKey(includeIfNull: false) String? model,
+      @JsonKey(includeIfNull: false) Usage? usage,
+      @JsonKey(includeIfNull: false) String? object});
+
+  @override
+  $UsageCopyWith<$Res>? get usage;
+}
+
+/// @nodoc
+class __$$ChatCompletionStreamImplCopyWithImpl<$Res>
+    extends _$ChatCompletionStreamCopyWithImpl<$Res, _$ChatCompletionStreamImpl>
+    implements _$$ChatCompletionStreamImplCopyWith<$Res> {
+  __$$ChatCompletionStreamImplCopyWithImpl(_$ChatCompletionStreamImpl _value,
+      $Res Function(_$ChatCompletionStreamImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? choices = freezed,
+    Object? created = freezed,
+    Object? model = freezed,
+    Object? usage = freezed,
+    Object? object = freezed,
+  }) {
+    return _then(_$ChatCompletionStreamImpl(
+      choices: freezed == choices
+          ? _value._choices
+          : choices // ignore: cast_nullable_to_non_nullable
+              as List<ChoicesChunk>?,
+      created: freezed == created
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as int?,
+      model: freezed == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as String?,
+      usage: freezed == usage
+          ? _value.usage
+          : usage // ignore: cast_nullable_to_non_nullable
+              as Usage?,
+      object: freezed == object
+          ? _value.object
+          : object // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ChatCompletionStreamImpl extends _ChatCompletionStream {
+  const _$ChatCompletionStreamImpl(
+      {@JsonKey(includeIfNull: false) final List<ChoicesChunk>? choices,
+      @JsonKey(includeIfNull: false) this.created,
+      @JsonKey(includeIfNull: false) this.model,
+      @JsonKey(includeIfNull: false) this.usage,
+      @JsonKey(includeIfNull: false) this.object})
+      : _choices = choices,
+        super._();
+
+  factory _$ChatCompletionStreamImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChatCompletionStreamImplFromJson(json);
+
+  /// Массив ответов модели.
+  final List<ChoicesChunk>? _choices;
+
+  /// Массив ответов модели.
+  @override
+  @JsonKey(includeIfNull: false)
+  List<ChoicesChunk>? get choices {
+    final value = _choices;
+    if (value == null) return null;
+    if (_choices is EqualUnmodifiableListView) return _choices;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Дата и время создания ответа в формате Unix time.
+  @override
+  @JsonKey(includeIfNull: false)
+  final int? created;
+
+  /// Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
+  @override
+  @JsonKey(includeIfNull: false)
+  final String? model;
+
+  /// Данные об использовании модели.
+  @override
+  @JsonKey(includeIfNull: false)
+  final Usage? usage;
+
+  /// Название вызываемого метода.
+  @override
+  @JsonKey(includeIfNull: false)
+  final String? object;
+
+  @override
+  String toString() {
+    return 'ChatCompletionStream(choices: $choices, created: $created, model: $model, usage: $usage, object: $object)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatCompletionStreamImpl &&
+            const DeepCollectionEquality().equals(other._choices, _choices) &&
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.model, model) || other.model == model) &&
+            (identical(other.usage, usage) || other.usage == usage) &&
+            (identical(other.object, object) || other.object == object));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_choices),
+      created,
+      model,
+      usage,
+      object);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatCompletionStreamImplCopyWith<_$ChatCompletionStreamImpl>
+      get copyWith =>
+          __$$ChatCompletionStreamImplCopyWithImpl<_$ChatCompletionStreamImpl>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ChatCompletionStreamImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ChatCompletionStream extends ChatCompletionStream {
+  const factory _ChatCompletionStream(
+          {@JsonKey(includeIfNull: false) final List<ChoicesChunk>? choices,
+          @JsonKey(includeIfNull: false) final int? created,
+          @JsonKey(includeIfNull: false) final String? model,
+          @JsonKey(includeIfNull: false) final Usage? usage,
+          @JsonKey(includeIfNull: false) final String? object}) =
+      _$ChatCompletionStreamImpl;
+  const _ChatCompletionStream._() : super._();
+
+  factory _ChatCompletionStream.fromJson(Map<String, dynamic> json) =
+      _$ChatCompletionStreamImpl.fromJson;
+
+  @override
+
+  /// Массив ответов модели.
+  @JsonKey(includeIfNull: false)
+  List<ChoicesChunk>? get choices;
+  @override
+
+  /// Дата и время создания ответа в формате Unix time.
+  @JsonKey(includeIfNull: false)
+  int? get created;
+  @override
+
+  /// Название модели. Описание доступных моделей смотрите в разделе [Модели GigaChat](/ru/gigachat/models).
+  @JsonKey(includeIfNull: false)
+  String? get model;
+  @override
+
+  /// Данные об использовании модели.
+  @JsonKey(includeIfNull: false)
+  Usage? get usage;
+  @override
+
+  /// Название вызываемого метода.
+  @JsonKey(includeIfNull: false)
+  String? get object;
+  @override
+  @JsonKey(ignore: true)
+  _$$ChatCompletionStreamImplCopyWith<_$ChatCompletionStreamImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 Choices _$ChoicesFromJson(Map<String, dynamic> json) {
   return _Choices.fromJson(json);
 }
@@ -2996,7 +3298,7 @@ Choices _$ChoicesFromJson(Map<String, dynamic> json) {
 mixin _$Choices {
   /// Сгенерированное сообщение.
   @JsonKey(includeIfNull: false)
-  MessagesRes? get delta => throw _privateConstructorUsedError;
+  MessagesRes? get message => throw _privateConstructorUsedError;
 
   /// Индекс сообщения в массиве начиная с ноля.
   @JsonKey(includeIfNull: false)
@@ -3025,7 +3327,7 @@ abstract class $ChoicesCopyWith<$Res> {
       _$ChoicesCopyWithImpl<$Res, Choices>;
   @useResult
   $Res call(
-      {@JsonKey(includeIfNull: false) MessagesRes? delta,
+      {@JsonKey(includeIfNull: false) MessagesRes? message,
       @JsonKey(includeIfNull: false) int? index,
       @JsonKey(
           name: 'finish_reason',
@@ -3033,13 +3335,277 @@ abstract class $ChoicesCopyWith<$Res> {
           unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       ChoicesFinishReason? finishReason});
 
-  $MessagesResCopyWith<$Res>? get delta;
+  $MessagesResCopyWith<$Res>? get message;
 }
 
 /// @nodoc
 class _$ChoicesCopyWithImpl<$Res, $Val extends Choices>
     implements $ChoicesCopyWith<$Res> {
   _$ChoicesCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+    Object? index = freezed,
+    Object? finishReason = freezed,
+  }) {
+    return _then(_value.copyWith(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as MessagesRes?,
+      index: freezed == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int?,
+      finishReason: freezed == finishReason
+          ? _value.finishReason
+          : finishReason // ignore: cast_nullable_to_non_nullable
+              as ChoicesFinishReason?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MessagesResCopyWith<$Res>? get message {
+    if (_value.message == null) {
+      return null;
+    }
+
+    return $MessagesResCopyWith<$Res>(_value.message!, (value) {
+      return _then(_value.copyWith(message: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$ChoicesImplCopyWith<$Res> implements $ChoicesCopyWith<$Res> {
+  factory _$$ChoicesImplCopyWith(
+          _$ChoicesImpl value, $Res Function(_$ChoicesImpl) then) =
+      __$$ChoicesImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(includeIfNull: false) MessagesRes? message,
+      @JsonKey(includeIfNull: false) int? index,
+      @JsonKey(
+          name: 'finish_reason',
+          includeIfNull: false,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      ChoicesFinishReason? finishReason});
+
+  @override
+  $MessagesResCopyWith<$Res>? get message;
+}
+
+/// @nodoc
+class __$$ChoicesImplCopyWithImpl<$Res>
+    extends _$ChoicesCopyWithImpl<$Res, _$ChoicesImpl>
+    implements _$$ChoicesImplCopyWith<$Res> {
+  __$$ChoicesImplCopyWithImpl(
+      _$ChoicesImpl _value, $Res Function(_$ChoicesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+    Object? index = freezed,
+    Object? finishReason = freezed,
+  }) {
+    return _then(_$ChoicesImpl(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as MessagesRes?,
+      index: freezed == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int?,
+      finishReason: freezed == finishReason
+          ? _value.finishReason
+          : finishReason // ignore: cast_nullable_to_non_nullable
+              as ChoicesFinishReason?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ChoicesImpl extends _Choices {
+  const _$ChoicesImpl(
+      {@JsonKey(includeIfNull: false) this.message,
+      @JsonKey(includeIfNull: false) this.index,
+      @JsonKey(
+          name: 'finish_reason',
+          includeIfNull: false,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      this.finishReason})
+      : super._();
+
+  factory _$ChoicesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChoicesImplFromJson(json);
+
+  /// Сгенерированное сообщение.
+  @override
+  @JsonKey(includeIfNull: false)
+  final MessagesRes? message;
+
+  /// Индекс сообщения в массиве начиная с ноля.
+  @override
+  @JsonKey(includeIfNull: false)
+  final int? index;
+
+  /// Причина завершения гипотезы. Возможные значения:
+  ///
+  /// * `stop` — модель закончила формировать гипотезу и вернула полный ответ;
+  /// * `length` — достигнут лимит токенов в сообщении;
+  /// * `function_call` — указывает что при запросе была вызвана встроенная функция или сгенерированы аргументы для пользовательской функции;
+  /// * `blacklist` — запрос подпадает под [тематические ограничения](/ru/gigachat/limitations#tematicheskie-ogranicheniya-zaprosov).
+  @override
+  @JsonKey(
+      name: 'finish_reason',
+      includeIfNull: false,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  final ChoicesFinishReason? finishReason;
+
+  @override
+  String toString() {
+    return 'Choices(message: $message, index: $index, finishReason: $finishReason)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChoicesImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.finishReason, finishReason) ||
+                other.finishReason == finishReason));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, message, index, finishReason);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChoicesImplCopyWith<_$ChoicesImpl> get copyWith =>
+      __$$ChoicesImplCopyWithImpl<_$ChoicesImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ChoicesImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Choices extends Choices {
+  const factory _Choices(
+      {@JsonKey(includeIfNull: false) final MessagesRes? message,
+      @JsonKey(includeIfNull: false) final int? index,
+      @JsonKey(
+          name: 'finish_reason',
+          includeIfNull: false,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      final ChoicesFinishReason? finishReason}) = _$ChoicesImpl;
+  const _Choices._() : super._();
+
+  factory _Choices.fromJson(Map<String, dynamic> json) = _$ChoicesImpl.fromJson;
+
+  @override
+
+  /// Сгенерированное сообщение.
+  @JsonKey(includeIfNull: false)
+  MessagesRes? get message;
+  @override
+
+  /// Индекс сообщения в массиве начиная с ноля.
+  @JsonKey(includeIfNull: false)
+  int? get index;
+  @override
+
+  /// Причина завершения гипотезы. Возможные значения:
+  ///
+  /// * `stop` — модель закончила формировать гипотезу и вернула полный ответ;
+  /// * `length` — достигнут лимит токенов в сообщении;
+  /// * `function_call` — указывает что при запросе была вызвана встроенная функция или сгенерированы аргументы для пользовательской функции;
+  /// * `blacklist` — запрос подпадает под [тематические ограничения](/ru/gigachat/limitations#tematicheskie-ogranicheniya-zaprosov).
+  @JsonKey(
+      name: 'finish_reason',
+      includeIfNull: false,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  ChoicesFinishReason? get finishReason;
+  @override
+  @JsonKey(ignore: true)
+  _$$ChoicesImplCopyWith<_$ChoicesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ChoicesChunk _$ChoicesChunkFromJson(Map<String, dynamic> json) {
+  return _ChoicesChunk.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ChoicesChunk {
+  /// Сгенерированное сообщение.
+  @JsonKey(includeIfNull: false)
+  MessagesRes? get delta => throw _privateConstructorUsedError;
+
+  /// Индекс сообщения в массиве начиная с ноля.
+  @JsonKey(includeIfNull: false)
+  int? get index => throw _privateConstructorUsedError;
+
+  /// Причина завершения гипотезы. Возможные значения:
+  ///
+  /// * `stop` — модель закончила формировать гипотезу и вернула полный ответ;
+  /// * `length` — достигнут лимит токенов в сообщении;
+  /// * `function_call` — указывает что при запросе была вызвана встроенная функция или сгенерированы аргументы для пользовательской функции;
+  /// * `blacklist` — запрос подпадает под [тематические ограничения](/ru/gigachat/limitations#tematicheskie-ogranicheniya-zaprosov).
+  @JsonKey(
+      name: 'finish_reason',
+      includeIfNull: false,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  ChoicesChunkFinishReason? get finishReason =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ChoicesChunkCopyWith<ChoicesChunk> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ChoicesChunkCopyWith<$Res> {
+  factory $ChoicesChunkCopyWith(
+          ChoicesChunk value, $Res Function(ChoicesChunk) then) =
+      _$ChoicesChunkCopyWithImpl<$Res, ChoicesChunk>;
+  @useResult
+  $Res call(
+      {@JsonKey(includeIfNull: false) MessagesRes? delta,
+      @JsonKey(includeIfNull: false) int? index,
+      @JsonKey(
+          name: 'finish_reason',
+          includeIfNull: false,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      ChoicesChunkFinishReason? finishReason});
+
+  $MessagesResCopyWith<$Res>? get delta;
+}
+
+/// @nodoc
+class _$ChoicesChunkCopyWithImpl<$Res, $Val extends ChoicesChunk>
+    implements $ChoicesChunkCopyWith<$Res> {
+  _$ChoicesChunkCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -3065,7 +3631,7 @@ class _$ChoicesCopyWithImpl<$Res, $Val extends Choices>
       finishReason: freezed == finishReason
           ? _value.finishReason
           : finishReason // ignore: cast_nullable_to_non_nullable
-              as ChoicesFinishReason?,
+              as ChoicesChunkFinishReason?,
     ) as $Val);
   }
 
@@ -3083,10 +3649,11 @@ class _$ChoicesCopyWithImpl<$Res, $Val extends Choices>
 }
 
 /// @nodoc
-abstract class _$$ChoicesImplCopyWith<$Res> implements $ChoicesCopyWith<$Res> {
-  factory _$$ChoicesImplCopyWith(
-          _$ChoicesImpl value, $Res Function(_$ChoicesImpl) then) =
-      __$$ChoicesImplCopyWithImpl<$Res>;
+abstract class _$$ChoicesChunkImplCopyWith<$Res>
+    implements $ChoicesChunkCopyWith<$Res> {
+  factory _$$ChoicesChunkImplCopyWith(
+          _$ChoicesChunkImpl value, $Res Function(_$ChoicesChunkImpl) then) =
+      __$$ChoicesChunkImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -3096,18 +3663,18 @@ abstract class _$$ChoicesImplCopyWith<$Res> implements $ChoicesCopyWith<$Res> {
           name: 'finish_reason',
           includeIfNull: false,
           unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-      ChoicesFinishReason? finishReason});
+      ChoicesChunkFinishReason? finishReason});
 
   @override
   $MessagesResCopyWith<$Res>? get delta;
 }
 
 /// @nodoc
-class __$$ChoicesImplCopyWithImpl<$Res>
-    extends _$ChoicesCopyWithImpl<$Res, _$ChoicesImpl>
-    implements _$$ChoicesImplCopyWith<$Res> {
-  __$$ChoicesImplCopyWithImpl(
-      _$ChoicesImpl _value, $Res Function(_$ChoicesImpl) _then)
+class __$$ChoicesChunkImplCopyWithImpl<$Res>
+    extends _$ChoicesChunkCopyWithImpl<$Res, _$ChoicesChunkImpl>
+    implements _$$ChoicesChunkImplCopyWith<$Res> {
+  __$$ChoicesChunkImplCopyWithImpl(
+      _$ChoicesChunkImpl _value, $Res Function(_$ChoicesChunkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3117,7 +3684,7 @@ class __$$ChoicesImplCopyWithImpl<$Res>
     Object? index = freezed,
     Object? finishReason = freezed,
   }) {
-    return _then(_$ChoicesImpl(
+    return _then(_$ChoicesChunkImpl(
       delta: freezed == delta
           ? _value.delta
           : delta // ignore: cast_nullable_to_non_nullable
@@ -3129,15 +3696,15 @@ class __$$ChoicesImplCopyWithImpl<$Res>
       finishReason: freezed == finishReason
           ? _value.finishReason
           : finishReason // ignore: cast_nullable_to_non_nullable
-              as ChoicesFinishReason?,
+              as ChoicesChunkFinishReason?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ChoicesImpl extends _Choices {
-  const _$ChoicesImpl(
+class _$ChoicesChunkImpl extends _ChoicesChunk {
+  const _$ChoicesChunkImpl(
       {@JsonKey(includeIfNull: false) this.delta,
       @JsonKey(includeIfNull: false) this.index,
       @JsonKey(
@@ -3147,8 +3714,8 @@ class _$ChoicesImpl extends _Choices {
       this.finishReason})
       : super._();
 
-  factory _$ChoicesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChoicesImplFromJson(json);
+  factory _$ChoicesChunkImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChoicesChunkImplFromJson(json);
 
   /// Сгенерированное сообщение.
   @override
@@ -3171,18 +3738,18 @@ class _$ChoicesImpl extends _Choices {
       name: 'finish_reason',
       includeIfNull: false,
       unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-  final ChoicesFinishReason? finishReason;
+  final ChoicesChunkFinishReason? finishReason;
 
   @override
   String toString() {
-    return 'Choices(delta: $delta, index: $index, finishReason: $finishReason)';
+    return 'ChoicesChunk(delta: $delta, index: $index, finishReason: $finishReason)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChoicesImpl &&
+            other is _$ChoicesChunkImpl &&
             (identical(other.delta, delta) || other.delta == delta) &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.finishReason, finishReason) ||
@@ -3196,29 +3763,30 @@ class _$ChoicesImpl extends _Choices {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChoicesImplCopyWith<_$ChoicesImpl> get copyWith =>
-      __$$ChoicesImplCopyWithImpl<_$ChoicesImpl>(this, _$identity);
+  _$$ChoicesChunkImplCopyWith<_$ChoicesChunkImpl> get copyWith =>
+      __$$ChoicesChunkImplCopyWithImpl<_$ChoicesChunkImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ChoicesImplToJson(
+    return _$$ChoicesChunkImplToJson(
       this,
     );
   }
 }
 
-abstract class _Choices extends Choices {
-  const factory _Choices(
+abstract class _ChoicesChunk extends ChoicesChunk {
+  const factory _ChoicesChunk(
       {@JsonKey(includeIfNull: false) final MessagesRes? delta,
       @JsonKey(includeIfNull: false) final int? index,
       @JsonKey(
           name: 'finish_reason',
           includeIfNull: false,
           unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-      final ChoicesFinishReason? finishReason}) = _$ChoicesImpl;
-  const _Choices._() : super._();
+      final ChoicesChunkFinishReason? finishReason}) = _$ChoicesChunkImpl;
+  const _ChoicesChunk._() : super._();
 
-  factory _Choices.fromJson(Map<String, dynamic> json) = _$ChoicesImpl.fromJson;
+  factory _ChoicesChunk.fromJson(Map<String, dynamic> json) =
+      _$ChoicesChunkImpl.fromJson;
 
   @override
 
@@ -3242,10 +3810,10 @@ abstract class _Choices extends Choices {
       name: 'finish_reason',
       includeIfNull: false,
       unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-  ChoicesFinishReason? get finishReason;
+  ChoicesChunkFinishReason? get finishReason;
   @override
   @JsonKey(ignore: true)
-  _$$ChoicesImplCopyWith<_$ChoicesImpl> get copyWith =>
+  _$$ChoicesChunkImplCopyWith<_$ChoicesChunkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

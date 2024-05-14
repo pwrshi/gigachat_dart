@@ -7,6 +7,6 @@ http.Client createDefaultHttpClient() {
 }
 
 /// Middleware for HTTP requests.
-Future<http.BaseRequest> onRequestHandler(final http.BaseRequest request) {
+Future<http.BaseRequest> onRequestHandler(http.BaseRequest request) {
   return Future.value(request);
 }

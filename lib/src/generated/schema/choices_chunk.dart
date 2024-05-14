@@ -5,18 +5,18 @@
 part of gigachat_schema;
 
 // ==========================================
-// CLASS: Choices
+// CLASS: ChoicesChunk
 // ==========================================
 
 /// No Description
 @freezed
-class Choices with _$Choices {
-  const Choices._();
+class ChoicesChunk with _$ChoicesChunk {
+  const ChoicesChunk._();
 
-  /// Factory constructor for Choices
-  const factory Choices({
+  /// Factory constructor for ChoicesChunk
+  const factory ChoicesChunk({
     /// Сгенерированное сообщение.
-    @JsonKey(includeIfNull: false) MessagesRes? message,
+    @JsonKey(includeIfNull: false) MessagesRes? delta,
 
     /// Индекс сообщения в массиве начиная с ноля.
     @JsonKey(includeIfNull: false) int? index,
@@ -32,19 +32,15 @@ class Choices with _$Choices {
       includeIfNull: false,
       unknownEnumValue: JsonKey.nullForUndefinedEnumValue,
     )
-    ChoicesFinishReason? finishReason,
-  }) = _Choices;
+    ChoicesChunkFinishReason? finishReason,
+  }) = _ChoicesChunk;
 
   /// Object construction from a JSON representation
-  factory Choices.fromJson(Map<String, dynamic> json) =>
-      _$ChoicesFromJson(json);
+  factory ChoicesChunk.fromJson(Map<String, dynamic> json) =>
+      _$ChoicesChunkFromJson(json);
 
   /// List of all property names of schema
-  static const List<String> propertyNames = [
-    'message',
-    'index',
-    'finish_reason'
-  ];
+  static const List<String> propertyNames = ['delta', 'index', 'finish_reason'];
 
   /// Perform validations on the schema property values
   String? validateSchema() {
@@ -54,7 +50,7 @@ class Choices with _$Choices {
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
     return {
-      'message': message,
+      'delta': delta,
       'index': index,
       'finish_reason': finishReason,
     };
@@ -62,7 +58,7 @@ class Choices with _$Choices {
 }
 
 // ==========================================
-// ENUM: ChoicesFinishReason
+// ENUM: ChoicesChunkFinishReason
 // ==========================================
 
 /// Причина завершения гипотезы. Возможные значения:
@@ -71,7 +67,7 @@ class Choices with _$Choices {
 /// * `length` — достигнут лимит токенов в сообщении;
 /// * `function_call` — указывает что при запросе была вызвана встроенная функция или сгенерированы аргументы для пользовательской функции;
 /// * `blacklist` — запрос подпадает под [тематические ограничения](/ru/gigachat/limitations#tematicheskie-ogranicheniya-zaprosov).
-enum ChoicesFinishReason {
+enum ChoicesChunkFinishReason {
   @JsonValue('stop')
   stop,
   @JsonValue('length')

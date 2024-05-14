@@ -297,11 +297,43 @@ Map<String, dynamic> _$$ChatCompletionImplToJson(
   return val;
 }
 
+_$ChatCompletionStreamImpl _$$ChatCompletionStreamImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ChatCompletionStreamImpl(
+      choices: (json['choices'] as List<dynamic>?)
+          ?.map((e) => ChoicesChunk.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      created: (json['created'] as num?)?.toInt(),
+      model: json['model'] as String?,
+      usage: json['usage'] == null
+          ? null
+          : Usage.fromJson(json['usage'] as Map<String, dynamic>),
+      object: json['object'] as String?,
+    );
+
+Map<String, dynamic> _$$ChatCompletionStreamImplToJson(
+    _$ChatCompletionStreamImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('choices', instance.choices?.map((e) => e.toJson()).toList());
+  writeNotNull('created', instance.created);
+  writeNotNull('model', instance.model);
+  writeNotNull('usage', instance.usage?.toJson());
+  writeNotNull('object', instance.object);
+  return val;
+}
+
 _$ChoicesImpl _$$ChoicesImplFromJson(Map<String, dynamic> json) =>
     _$ChoicesImpl(
-      delta: json['delta'] == null
+      message: json['message'] == null
           ? null
-          : MessagesRes.fromJson(json['delta'] as Map<String, dynamic>),
+          : MessagesRes.fromJson(json['message'] as Map<String, dynamic>),
       index: (json['index'] as num?)?.toInt(),
       finishReason: $enumDecodeNullable(
           _$ChoicesFinishReasonEnumMap, json['finish_reason'],
@@ -317,7 +349,7 @@ Map<String, dynamic> _$$ChoicesImplToJson(_$ChoicesImpl instance) {
     }
   }
 
-  writeNotNull('delta', instance.delta?.toJson());
+  writeNotNull('message', instance.message?.toJson());
   writeNotNull('index', instance.index);
   writeNotNull(
       'finish_reason', _$ChoicesFinishReasonEnumMap[instance.finishReason]);
@@ -329,6 +361,40 @@ const _$ChoicesFinishReasonEnumMap = {
   ChoicesFinishReason.length: 'length',
   ChoicesFinishReason.functionCall: 'function_call',
   ChoicesFinishReason.blacklist: 'blacklist',
+};
+
+_$ChoicesChunkImpl _$$ChoicesChunkImplFromJson(Map<String, dynamic> json) =>
+    _$ChoicesChunkImpl(
+      delta: json['delta'] == null
+          ? null
+          : MessagesRes.fromJson(json['delta'] as Map<String, dynamic>),
+      index: (json['index'] as num?)?.toInt(),
+      finishReason: $enumDecodeNullable(
+          _$ChoicesChunkFinishReasonEnumMap, json['finish_reason'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
+    );
+
+Map<String, dynamic> _$$ChoicesChunkImplToJson(_$ChoicesChunkImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('delta', instance.delta?.toJson());
+  writeNotNull('index', instance.index);
+  writeNotNull('finish_reason',
+      _$ChoicesChunkFinishReasonEnumMap[instance.finishReason]);
+  return val;
+}
+
+const _$ChoicesChunkFinishReasonEnumMap = {
+  ChoicesChunkFinishReason.stop: 'stop',
+  ChoicesChunkFinishReason.length: 'length',
+  ChoicesChunkFinishReason.functionCall: 'function_call',
+  ChoicesChunkFinishReason.blacklist: 'blacklist',
 };
 
 _$TokenImpl _$$TokenImplFromJson(Map<String, dynamic> json) => _$TokenImpl(

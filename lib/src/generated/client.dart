@@ -280,7 +280,7 @@ class GigachatClient {
         if (body != null) {
           switch (requestType) {
             case 'application/x-www-form-urlencoded':
-              List<String> parts = [];
+              var parts = [];
               Map<String, String> bodyMap =
                   Map<String, String>.from(body as Map<dynamic, dynamic>);
 
@@ -594,6 +594,7 @@ class GigachatClient {
   // ------------------------------------------
   // METHOD: postEmbeddings
   // ------------------------------------------
+
   /// Создать эмбеддинг
   ///
   /// Возвращает векторные представления соответствующих текстовых запросов. Индекс объекта с векторным представлением (поле `index`) соответствует индексу строки в массиве `input` запроса.

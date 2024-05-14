@@ -37,9 +37,9 @@ class GigachatClient {
     Map<String, String> queryParams = const {},
     http.Client? client,
   }) {
-    final a = utf8.decode(base64.decode(base64token)).split(':');
-    final clientId = a[0];
-    final clientSecret = a[1];
+    final tokenParts = utf8.decode(base64.decode(base64token)).split(':');
+    final clientId = tokenParts[0];
+    final clientSecret = tokenParts[1];
     return GigachatClient(
       clientId: clientId,
       clientSecret: clientSecret,
@@ -66,24 +66,25 @@ class GigachatClient {
   Future<void> updateAccessToken() async {
     _client.bearerToken = '';
     accessToken = null;
-    final token = await _client
-        .postToken(rqUID: _uuid.v4(), request: {'scope': 'GIGACHAT_API_PERS'});
+    final token = await _client.postToken(
+      rqUID: _uuid.v4(),
+      request: {'scope': 'GIGACHAT_API_PERS'},
+    );
 
     if (token.accessToken == null) {
       throw Exception('Failed to update access token');
     }
 
     accessToken = token;
-    _client.bearerToken = token.accessToken ?? '';
+    _client.bearerToken = token.accessToken!;
   }
 
   /// method check if token is null or exired then fetch new
   @protected
   Future<void> checkAccessTokenValidity() async {
-    if (accessToken?.expiresAt == null) {
-      await updateAccessToken();
-    } else if (DateTime.fromMillisecondsSinceEpoch(accessToken!.expiresAt!)
-        .isAfter(DateTime.now())) {
+    if (accessToken?.expiresAt == null ||
+        DateTime.fromMillisecondsSinceEpoch(accessToken!.expiresAt!)
+            .isBefore(DateTime.now())) {
       await updateAccessToken();
     }
   }
@@ -91,16 +92,16 @@ class GigachatClient {
   /// return list of aviable models
   Future<Models> getModels() async {
     await checkAccessTokenValidity();
-    return await _client.getModels();
+    return _client.getModels();
   }
 
   /// raw stream of text (wrapped in objects)
-  Stream<ChatCompletion> generateChatCompletionStream({
+  Stream<ChatCompletionStream> generateChatCompletionStream({
     required Chat request,
   }) async* {
     await checkAccessTokenValidity();
     // ignore: invalid_use_of_protected_member
-    final r = await _client.makeRequestStream(
+    final response = await _client.makeRequestStream(
       baseUrl: 'https://gigachat.devices.sberbank.ru/api/v1',
       path: '/chat/completions',
       method: g.HttpMethod.post,
@@ -108,23 +109,36 @@ class GigachatClient {
       responseType: 'application/x-ndjson',
       body: request.copyWith(stream: true),
     );
-    yield* r.stream
-        .transform(const _OpenAIStreamTransformer()) //
-        .map(
-      (text) {
-        final js = json.decode(text);
-        final cc = ChatCompletion.fromJson(js);
-        return cc;
-      },
-    );
+    yield* response.stream
+        .transform(const _OpenAIStreamTransformer())
+        .map((text) => ChatCompletionStream.fromJson(json.decode(text)));
   }
 
-  ///summarize text from stream and return as Future of String
-  Future<String> generateChatCompletion({required Chat request}) async {
-    return await generateChatCompletionStream(request: request).fold(
-      '',
-      (previous, element) => previous + element.choices![0].delta!.content!,
+  /// generate chat completion as future
+  Future<ChatCompletion> generateChatCompletion({
+    required Chat request,
+  }) async {
+    await checkAccessTokenValidity();
+    // ignore: invalid_use_of_protected_member
+    final response = await _client.makeRequest(
+      baseUrl: 'https://gigachat.devices.sberbank.ru/api/v1',
+      path: '/chat/completions',
+      method: g.HttpMethod.post,
+      requestType: 'application/json',
+      responseType: 'application/json',
+      body: request.copyWith(stream: false),
     );
+
+    return ChatCompletion.fromJson(json.decode(response.body));
+  }
+
+  Future<String> _generateChatCompletionText({required Chat request}) async {
+    final response = await generateChatCompletion(request: request);
+    final msg = response.choices?.first.message?.content;
+    if (msg == null) {
+      throw Exception('Message was not generated, message is empty');
+    }
+    return msg;
   }
 
   /// generate answer on user prompt (like chatgpt)
@@ -133,7 +147,7 @@ class GigachatClient {
     String model = 'GigaChat',
     String? preset,
   }) {
-    return generateChatCompletion(
+    return _generateChatCompletionText(
       request: Chat(
         model: model,
         messages: [
@@ -151,7 +165,7 @@ class GigachatClient {
     String model = 'GigaChat',
     String? preset,
   }) {
-    return generateChatCompletion(
+    return _generateChatCompletionText(
       request: Chat(
         model: model,
         messages: [
