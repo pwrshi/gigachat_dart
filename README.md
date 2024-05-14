@@ -1,62 +1,78 @@
 # Gigachat Dart
-
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 
-A Very Good Project created by Very Good CLI.
+# gigachat_dart
 
-## Installation 💻
+Welcome to gigachat_dart, a Dart implementation of the GigaChat API. This project allows you to interact with the GigaChat API using the Dart programming language.
 
-**❗ In order to start using Gigachat Dart you must have the [Dart SDK][dart_install_link] installed on your machine.**
+## Features
 
-Install via `dart pub add`:
+- [x] Completion Stream
+- [x] Get list of models
+- [x] Auto refresh token
+- [x] Completion Future
+- [ ] Get image by id (not checked)
+- [ ] Embeddings (not checked)
 
-```sh
-dart pub add gigachat_dart
+
+## Installation
+
+To install gigachat_dart, add the following dependency to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  gigachat_dart: ^0.1.0
 ```
 
----
+## Usage
 
-## Continuous Integration 🤖
+To use gigachat_dart, first initialize a new GigaChat client:
 
-Gigachat Dart comes with a built-in [GitHub Actions workflow][github_actions_link] powered by [Very Good Workflows][very_good_workflows_link] but you can also add your preferred CI/CD solution.
+```dart
+import 'package:gigachat_dart/gigachat_dart.dart';
 
-Out of the box, on each pull request and push, the CI `formats`, `lints`, and `tests` the code. This ensures the code remains consistent and behaves correctly as you add functionality or make changes. The project uses [Very Good Analysis][very_good_analysis_link] for a strict set of analysis options used by our team. Code coverage is enforced using the [Very Good Workflows][very_good_coverage_link].
+final client = GigachatClient(
+      clientId: '<your uuid v4 id>',
+      clientSecret: '<your uuid v4 secret>');
+# or
 
----
+final client = GigachatClient.fromBase64(base64token: '<your base64 token>');
 
-## Running Tests 🧪
-
-To run all unit tests:
-
-```sh
-dart pub global activate coverage 1.2.0
-dart test --coverage=coverage
-dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info
 ```
 
-To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
+Then, you can use the client to interact with the GigaChat API:
 
-```sh
-# Generate Coverage Report
-genhtml coverage/lcov.info -o coverage/
-
-# Open Coverage Report
-open coverage/index.html
+```dart
+final response = await client.generateAnswer(prompt: 'What is the capital of Russia?');
+print(response.answer); // Output text: Moscow
 ```
 
-[dart_install_link]: https://dart.dev/get-dart
-[github_actions_link]: https://docs.github.com/en/actions/learn-github-actions
-[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[license_link]: https://opensource.org/licenses/MIT
-[logo_black]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_black.png#gh-light-mode-only
-[logo_white]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_white.png#gh-dark-mode-only
-[mason_link]: https://github.com/felangel/mason
-[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
-[very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
-[very_good_coverage_link]: https://github.com/marketplace/actions/very-good-coverage
-[very_good_ventures_link]: https://verygood.ventures
-[very_good_ventures_link_light]: https://verygood.ventures#gh-light-mode-only
-[very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only
-[very_good_workflows_link]: https://github.com/VeryGoodOpenSource/very_good_workflows
+For generate answer by dialog you may use `generateChatCompletionStream`, where `event.choices![0].delta!.content` contain generated text:
+
+```dart
+final r = await (c
+              .generateChatCompletionStream(
+                  request: Chat(model: "GigaChat", messages: [
+            Message(role: MessageRole.user, content: "Почему небо голубое?")
+          ]))
+          .listen((event) {
+            // event -- chunk of message wrapped in object, generated text in event.choices![0].delta!.content
+          }) // Stream
+```
+Or you can use as Future:
+
+```dart
+final r = await c.generateChatCompletion(
+      request: Chat(model: 'GigaChat', messages: [
+    Message(role: MessageRole.user, content: 'Why sky is blue?'),
+    Message(role: MessageRole.assistant, content: "Because!!!"),
+    Message(role: MessageRole.user, content: "Tell me more")
+])); // generated text
+```
+
+
+## License
+
+This project is licensed under the MIT License.

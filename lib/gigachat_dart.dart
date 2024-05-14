@@ -1,4 +1,3 @@
-// /// A Very Good Project created by Very Good CLI.
-// library;
-
-// export 'src/gigachat_dart.dart';
+export 'src/client.dart';
+export 'src/generated/client.dart' show GigachatClientException;
+export 'src/generated/schema/schema.dart';

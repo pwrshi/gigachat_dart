@@ -575,7 +575,7 @@ components:
     Choices:
       type: object
       properties:
-        message:
+        delta:
           $ref: '#/components/schemas/MessagesRes'    
         index:
           format: int32

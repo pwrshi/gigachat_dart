@@ -1,11 +1,44 @@
-// // ignore_for_file: prefer_const_constructors
-// import 'package:gigachat_dart/gigachat_dart.dart';
-// import 'package:test/test.dart';
+// ignore_for_file: prefer_const_constructors
+import 'dart:io';
 
-// void main() {
-//   group('GigachatDart', () {
-//     test('can be instantiated', () {
-//       expect(GigachatDart(), isNotNull);
-//     });
-//   });
-// }
+import 'package:gigachat_dart/gigachat_dart.dart';
+import 'package:test/test.dart';
+
+void main() {
+  group('GigachatDart simple', () {
+    final c = GigachatClient(
+      clientId: Platform.environment['SBER_CLIENT_ID']!,
+      clientSecret: Platform.environment['SBER_CLIENT_SECRET']!,
+    );
+    test('get models', () async {
+      final models = await c.getModels();
+      expect(models.data, isNotNull);
+      expect(models.data!.every((element) => element.id != null), true);
+    });
+
+    test('get answer (original)', () async {
+      final answer = await c.generateAnswer(prompt: 'Why sky is blue?');
+      expect(answer, isNotEmpty);
+    });
+    test('get answer (Pro)', () async {
+      final answer = await c.generateAnswer(
+        prompt: 'Почему небо голубое?',
+        model: 'GigaChat-Pro',
+      );
+      expect(answer, isNotEmpty);
+    });
+
+    test('get continue (original)', () async {
+      final answer = await c.generateCompletion(prompt: 'Sky is blue because');
+      expect(answer, isNotEmpty);
+    });
+
+    test('get continue (Pro)', () async {
+      final answer = await c.generateCompletion(
+        prompt: 'Небо голубое потому что',
+        model: 'GigaChat-Pro',
+      );
+      expect(answer, isNotEmpty);
+    });
+  });
+}

@@ -2996,7 +2996,7 @@ Choices _$ChoicesFromJson(Map<String, dynamic> json) {
 mixin _$Choices {
   /// Сгенерированное сообщение.
   @JsonKey(includeIfNull: false)
-  MessagesRes? get message => throw _privateConstructorUsedError;
+  MessagesRes? get delta => throw _privateConstructorUsedError;
 
   /// Индекс сообщения в массиве начиная с ноля.
   @JsonKey(includeIfNull: false)
@@ -3025,7 +3025,7 @@ abstract class $ChoicesCopyWith<$Res> {
       _$ChoicesCopyWithImpl<$Res, Choices>;
   @useResult
   $Res call(
-      {@JsonKey(includeIfNull: false) MessagesRes? message,
+      {@JsonKey(includeIfNull: false) MessagesRes? delta,
       @JsonKey(includeIfNull: false) int? index,
       @JsonKey(
           name: 'finish_reason',
@@ -3033,7 +3033,7 @@ abstract class $ChoicesCopyWith<$Res> {
           unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       ChoicesFinishReason? finishReason});
 
-  $MessagesResCopyWith<$Res>? get message;
+  $MessagesResCopyWith<$Res>? get delta;
 }
 
 /// @nodoc
@@ -3049,14 +3049,14 @@ class _$ChoicesCopyWithImpl<$Res, $Val extends Choices>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? delta = freezed,
     Object? index = freezed,
     Object? finishReason = freezed,
   }) {
     return _then(_value.copyWith(
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      delta: freezed == delta
+          ? _value.delta
+          : delta // ignore: cast_nullable_to_non_nullable
               as MessagesRes?,
       index: freezed == index
           ? _value.index
@@ -3071,13 +3071,13 @@ class _$ChoicesCopyWithImpl<$Res, $Val extends Choices>
 
   @override
   @pragma('vm:prefer-inline')
-  $MessagesResCopyWith<$Res>? get message {
-    if (_value.message == null) {
+  $MessagesResCopyWith<$Res>? get delta {
+    if (_value.delta == null) {
       return null;
     }
 
-    return $MessagesResCopyWith<$Res>(_value.message!, (value) {
-      return _then(_value.copyWith(message: value) as $Val);
+    return $MessagesResCopyWith<$Res>(_value.delta!, (value) {
+      return _then(_value.copyWith(delta: value) as $Val);
     });
   }
 }
@@ -3090,7 +3090,7 @@ abstract class _$$ChoicesImplCopyWith<$Res> implements $ChoicesCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(includeIfNull: false) MessagesRes? message,
+      {@JsonKey(includeIfNull: false) MessagesRes? delta,
       @JsonKey(includeIfNull: false) int? index,
       @JsonKey(
           name: 'finish_reason',
@@ -3099,7 +3099,7 @@ abstract class _$$ChoicesImplCopyWith<$Res> implements $ChoicesCopyWith<$Res> {
       ChoicesFinishReason? finishReason});
 
   @override
-  $MessagesResCopyWith<$Res>? get message;
+  $MessagesResCopyWith<$Res>? get delta;
 }
 
 /// @nodoc
@@ -3113,14 +3113,14 @@ class __$$ChoicesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? delta = freezed,
     Object? index = freezed,
     Object? finishReason = freezed,
   }) {
     return _then(_$ChoicesImpl(
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      delta: freezed == delta
+          ? _value.delta
+          : delta // ignore: cast_nullable_to_non_nullable
               as MessagesRes?,
       index: freezed == index
           ? _value.index
@@ -3138,7 +3138,7 @@ class __$$ChoicesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ChoicesImpl extends _Choices {
   const _$ChoicesImpl(
-      {@JsonKey(includeIfNull: false) this.message,
+      {@JsonKey(includeIfNull: false) this.delta,
       @JsonKey(includeIfNull: false) this.index,
       @JsonKey(
           name: 'finish_reason',
@@ -3153,7 +3153,7 @@ class _$ChoicesImpl extends _Choices {
   /// Сгенерированное сообщение.
   @override
   @JsonKey(includeIfNull: false)
-  final MessagesRes? message;
+  final MessagesRes? delta;
 
   /// Индекс сообщения в массиве начиная с ноля.
   @override
@@ -3175,7 +3175,7 @@ class _$ChoicesImpl extends _Choices {
 
   @override
   String toString() {
-    return 'Choices(message: $message, index: $index, finishReason: $finishReason)';
+    return 'Choices(delta: $delta, index: $index, finishReason: $finishReason)';
   }
 
   @override
@@ -3183,7 +3183,7 @@ class _$ChoicesImpl extends _Choices {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChoicesImpl &&
-            (identical(other.message, message) || other.message == message) &&
+            (identical(other.delta, delta) || other.delta == delta) &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.finishReason, finishReason) ||
                 other.finishReason == finishReason));
@@ -3191,7 +3191,7 @@ class _$ChoicesImpl extends _Choices {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, message, index, finishReason);
+  int get hashCode => Object.hash(runtimeType, delta, index, finishReason);
 
   @JsonKey(ignore: true)
   @override
@@ -3209,7 +3209,7 @@ class _$ChoicesImpl extends _Choices {
 
 abstract class _Choices extends Choices {
   const factory _Choices(
-      {@JsonKey(includeIfNull: false) final MessagesRes? message,
+      {@JsonKey(includeIfNull: false) final MessagesRes? delta,
       @JsonKey(includeIfNull: false) final int? index,
       @JsonKey(
           name: 'finish_reason',
@@ -3224,7 +3224,7 @@ abstract class _Choices extends Choices {
 
   /// Сгенерированное сообщение.
   @JsonKey(includeIfNull: false)
-  MessagesRes? get message;
+  MessagesRes? get delta;
   @override
 
   /// Индекс сообщения в массиве начиная с ноля.

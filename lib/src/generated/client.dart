@@ -278,17 +278,23 @@ class GigachatClient {
       request = request as http.Request;
       try {
         if (body != null) {
-          if (requestType == 'application/x-www-form-urlencoded') {
-            var parts = [];
-            (Map<String, String>.from(body as Map<dynamic, dynamic>))
-                .forEach((key, value) {
-              parts.add('${Uri.encodeQueryComponent(key)}='
-                  '${Uri.encodeQueryComponent(value)}');
-            });
-            var formData = parts.join('&');
-            request.body = formData;
-          } else {
-            request.body = json.encode(body);
+          switch (requestType) {
+            case 'application/x-www-form-urlencoded':
+              var parts = [];
+              Map<String, String> bodyMap =
+                  Map<String, String>.from(body as Map<dynamic, dynamic>);
+
+              bodyMap.forEach((key, value) {
+                String encodedPart =
+                    '${Uri.encodeQueryComponent(key)}=${Uri.encodeQueryComponent(value)}';
+                parts.add(encodedPart);
+              });
+              request.body = parts.join('&');
+
+              break;
+            default:
+              request.body = json.encode(body);
+              break;
           }
         }
       } catch (e) {
@@ -588,7 +594,6 @@ class GigachatClient {
   // ------------------------------------------
   // METHOD: postEmbeddings
   // ------------------------------------------
-
   /// Создать эмбеддинг
   ///
   /// Возвращает векторные представления соответствующих текстовых запросов. Индекс объекта с векторным представлением (поле `index`) соответствует индексу строки в массиве `input` запроса.

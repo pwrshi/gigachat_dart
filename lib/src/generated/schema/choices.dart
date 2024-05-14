@@ -18,7 +18,7 @@ part of gigachat_schema;
       /// Factory constructor for Choices
       const factory Choices (
     {/// Сгенерированное сообщение.
- @JsonKey(includeIfNull: false) MessagesRes? message,
+ @JsonKey(includeIfNull: false) MessagesRes? delta,
 
 /// Индекс сообщения в массиве начиная с ноля.
 @JsonKey(includeIfNull: false) int ? index,
@@ -37,7 +37,7 @@ part of gigachat_schema;
     factory Choices.fromJson(Map<String, dynamic> json) => _$ChoicesFromJson(json);
 
     /// List of all property names of schema
-    static const List<String> propertyNames = ['message','index','finish_reason'];
+    static const List<String> propertyNames = ['delta','index','finish_reason'];
 
     
 
@@ -49,7 +49,7 @@ part of gigachat_schema;
   
     /// Map representation of object (not serialized)
     Map<String,dynamic> toMap(){
-      return {'message': message,
+      return {'delta': delta,
 'index': index,
 'finish_reason': finishReason,
 };

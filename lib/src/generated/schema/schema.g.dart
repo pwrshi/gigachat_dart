@@ -299,9 +299,9 @@ Map<String, dynamic> _$$ChatCompletionImplToJson(
 
 _$ChoicesImpl _$$ChoicesImplFromJson(Map<String, dynamic> json) =>
     _$ChoicesImpl(
-      message: json['message'] == null
+      delta: json['delta'] == null
           ? null
-          : MessagesRes.fromJson(json['message'] as Map<String, dynamic>),
+          : MessagesRes.fromJson(json['delta'] as Map<String, dynamic>),
       index: (json['index'] as num?)?.toInt(),
       finishReason: $enumDecodeNullable(
           _$ChoicesFinishReasonEnumMap, json['finish_reason'],
@@ -317,7 +317,7 @@ Map<String, dynamic> _$$ChoicesImplToJson(_$ChoicesImpl instance) {
     }
   }
 
-  writeNotNull('message', instance.message?.toJson());
+  writeNotNull('delta', instance.delta?.toJson());
   writeNotNull('index', instance.index);
   writeNotNull(
       'finish_reason', _$ChoicesFinishReasonEnumMap[instance.finishReason]);
