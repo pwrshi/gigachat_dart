@@ -13,8 +13,8 @@ Welcome to gigachat_dart, a Dart implementation of the GigaChat API. This projec
 - [x] Get list of models
 - [x] Auto refresh token
 - [x] Completion Future
-- [ ] Get image by id (not checked)
-- [ ] Embeddings (not checked)
+- [ ] Get image by id (not tested)
+- [ ] Embeddings (not tested)
 
 
 ## Installation

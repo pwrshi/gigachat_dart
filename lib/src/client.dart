@@ -20,6 +20,7 @@ class GigachatClient {
     String? baseUrl,
     Map<String, String> queryParams = const {},
     http.Client? client,
+    this.scope = 'GIGACHAT_API_PERS',
   }) {
     _client = g.GigachatClient(
       queryParams: queryParams,
@@ -48,6 +49,10 @@ class GigachatClient {
       client: client,
     );
   }
+
+  /// Used for versioning between corporates or individuals,
+  /// GIGACHAT_API_CORP and GIGACHAT_API_PERS, respectively
+  late final String scope;
   final _uuid = Uuid(goptions: GlobalOptions(CryptoRNG()));
 
   late g.GigachatClient _client;
@@ -68,7 +73,7 @@ class GigachatClient {
     accessToken = null;
     final token = await _client.postToken(
       rqUID: _uuid.v4(),
-      request: {'scope': 'GIGACHAT_API_PERS'},
+      request: {'scope': scope},
     );
 
     if (token.accessToken == null) {
