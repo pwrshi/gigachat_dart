@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: prefer_final_parameters, require_trailing_commas, non_constant_identifier_names, unnecessary_null_checks
+// ignore_for_file: prefer_final_parameters, require_trailing_commas,
+// ignore_for_file:  non_constant_identifier_names, unnecessary_null_checks
 
 part of 'schema.dart';
 
@@ -141,7 +142,7 @@ Map<String, dynamic> _$$ChatFunctionsInnerImplToJson(
 
 _$ChatFunctionsInnerParametersImpl _$$ChatFunctionsInnerParametersImplFromJson(
         Map<String, dynamic> json) =>
-    _$ChatFunctionsInnerParametersImpl();
+    const _$ChatFunctionsInnerParametersImpl();
 
 Map<String, dynamic> _$$ChatFunctionsInnerParametersImplToJson(
         _$ChatFunctionsInnerParametersImpl instance) =>
@@ -166,7 +167,7 @@ Map<String, dynamic> _$$ChatFunctionsInnerFewShotExamplesInnerImplToJson(
 _$ChatFunctionsInnerReturnParametersImpl
     _$$ChatFunctionsInnerReturnParametersImplFromJson(
             Map<String, dynamic> json) =>
-        _$ChatFunctionsInnerReturnParametersImpl();
+        const _$ChatFunctionsInnerReturnParametersImpl();
 
 Map<String, dynamic> _$$ChatFunctionsInnerReturnParametersImplToJson(
         _$ChatFunctionsInnerReturnParametersImpl instance) =>
@@ -175,7 +176,7 @@ Map<String, dynamic> _$$ChatFunctionsInnerReturnParametersImplToJson(
 _$ChatFunctionsInnerFewShotExamplesInnerParamsImpl
     _$$ChatFunctionsInnerFewShotExamplesInnerParamsImplFromJson(
             Map<String, dynamic> json) =>
-        _$ChatFunctionsInnerFewShotExamplesInnerParamsImpl();
+        const _$ChatFunctionsInnerFewShotExamplesInnerParamsImpl();
 
 Map<String, dynamic> _$$ChatFunctionsInnerFewShotExamplesInnerParamsImplToJson(
         _$ChatFunctionsInnerFewShotExamplesInnerParamsImpl instance) =>
@@ -537,7 +538,7 @@ Map<String, dynamic> _$$FunctionCallCustomFunctionImplToJson(
 _$FunctionCallCustomFunctionPartialArgumentsImpl
     _$$FunctionCallCustomFunctionPartialArgumentsImplFromJson(
             Map<String, dynamic> json) =>
-        _$FunctionCallCustomFunctionPartialArgumentsImpl();
+        const _$FunctionCallCustomFunctionPartialArgumentsImpl();
 
 Map<String, dynamic> _$$FunctionCallCustomFunctionPartialArgumentsImplToJson(
         _$FunctionCallCustomFunctionPartialArgumentsImpl instance) =>
