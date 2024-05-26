@@ -63,4 +63,12 @@ void main() {
       expect(messagesIsNull, false);
     });
   });
+  group('GigachatDart embedding', () {
+    test('get embedding', () async {
+      final r = await c.generateEmbedding(
+          request: EmbeddingsBody(input: ['Почему небо голубое']));
+      print(r);
+      expect(r.data.first.embedding, isNotNull);
+    });
+  });
 }

@@ -1,6 +1,6 @@
 name: gigachat_dart
 description: Dart client for GigaChat API
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/pwrshi/gigachat_dart
 
 topics:

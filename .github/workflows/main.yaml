@@ -12,6 +12,7 @@ on:
     branches:
       - main
 
+
 jobs:
   # semantic_pull_request:
   #   uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
