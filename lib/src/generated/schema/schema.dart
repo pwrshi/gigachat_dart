@@ -24,6 +24,7 @@ part 'choices.dart';
 part 'choices_chunk.dart';
 part 'token.dart';
 part 'tokens_count.dart';
+part 'token_count_item.dart';
 part 'embedding.dart';
 part 'tokens_count_body.dart';
 part 'embeddings_body.dart';

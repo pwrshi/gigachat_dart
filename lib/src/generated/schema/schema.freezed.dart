@@ -3995,6 +3995,214 @@ abstract class _Token extends Token {
       throw _privateConstructorUsedError;
 }
 
+TokenCountItem _$TokenCountItemFromJson(Map<String, dynamic> json) {
+  return _TokenCountItem.fromJson(json);
+}
+
+/// @nodoc
+mixin _$TokenCountItem {
+  /// Описание того, какая информация содержится в объекте.
+  String get object => throw _privateConstructorUsedError;
+
+  /// Количество токенов в соответствующей строке.
+  @JsonKey(includeIfNull: false)
+  int? get tokens => throw _privateConstructorUsedError;
+
+  /// Количество символов в соответствующей строке.
+  @JsonKey(includeIfNull: false)
+  int? get characters => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TokenCountItemCopyWith<TokenCountItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TokenCountItemCopyWith<$Res> {
+  factory $TokenCountItemCopyWith(
+          TokenCountItem value, $Res Function(TokenCountItem) then) =
+      _$TokenCountItemCopyWithImpl<$Res, TokenCountItem>;
+  @useResult
+  $Res call(
+      {String object,
+      @JsonKey(includeIfNull: false) int? tokens,
+      @JsonKey(includeIfNull: false) int? characters});
+}
+
+/// @nodoc
+class _$TokenCountItemCopyWithImpl<$Res, $Val extends TokenCountItem>
+    implements $TokenCountItemCopyWith<$Res> {
+  _$TokenCountItemCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? object = null,
+    Object? tokens = freezed,
+    Object? characters = freezed,
+  }) {
+    return _then(_value.copyWith(
+      object: null == object
+          ? _value.object
+          : object // ignore: cast_nullable_to_non_nullable
+              as String,
+      tokens: freezed == tokens
+          ? _value.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as int?,
+      characters: freezed == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$TokenCountItemImplCopyWith<$Res>
+    implements $TokenCountItemCopyWith<$Res> {
+  factory _$$TokenCountItemImplCopyWith(_$TokenCountItemImpl value,
+          $Res Function(_$TokenCountItemImpl) then) =
+      __$$TokenCountItemImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String object,
+      @JsonKey(includeIfNull: false) int? tokens,
+      @JsonKey(includeIfNull: false) int? characters});
+}
+
+/// @nodoc
+class __$$TokenCountItemImplCopyWithImpl<$Res>
+    extends _$TokenCountItemCopyWithImpl<$Res, _$TokenCountItemImpl>
+    implements _$$TokenCountItemImplCopyWith<$Res> {
+  __$$TokenCountItemImplCopyWithImpl(
+      _$TokenCountItemImpl _value, $Res Function(_$TokenCountItemImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? object = null,
+    Object? tokens = freezed,
+    Object? characters = freezed,
+  }) {
+    return _then(_$TokenCountItemImpl(
+      object: null == object
+          ? _value.object
+          : object // ignore: cast_nullable_to_non_nullable
+              as String,
+      tokens: freezed == tokens
+          ? _value.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as int?,
+      characters: freezed == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$TokenCountItemImpl extends _TokenCountItem {
+  const _$TokenCountItemImpl(
+      {this.object = 'tokens',
+      @JsonKey(includeIfNull: false) this.tokens,
+      @JsonKey(includeIfNull: false) this.characters})
+      : super._();
+
+  factory _$TokenCountItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TokenCountItemImplFromJson(json);
+
+  /// Описание того, какая информация содержится в объекте.
+  @override
+  @JsonKey()
+  final String object;
+
+  /// Количество токенов в соответствующей строке.
+  @override
+  @JsonKey(includeIfNull: false)
+  final int? tokens;
+
+  /// Количество символов в соответствующей строке.
+  @override
+  @JsonKey(includeIfNull: false)
+  final int? characters;
+
+  @override
+  String toString() {
+    return 'TokenCountItem(object: $object, tokens: $tokens, characters: $characters)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TokenCountItemImpl &&
+            (identical(other.object, object) || other.object == object) &&
+            (identical(other.tokens, tokens) || other.tokens == tokens) &&
+            (identical(other.characters, characters) ||
+                other.characters == characters));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, object, tokens, characters);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TokenCountItemImplCopyWith<_$TokenCountItemImpl> get copyWith =>
+      __$$TokenCountItemImplCopyWithImpl<_$TokenCountItemImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$TokenCountItemImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _TokenCountItem extends TokenCountItem {
+  const factory _TokenCountItem(
+          {final String object,
+          @JsonKey(includeIfNull: false) final int? tokens,
+          @JsonKey(includeIfNull: false) final int? characters}) =
+      _$TokenCountItemImpl;
+  const _TokenCountItem._() : super._();
+
+  factory _TokenCountItem.fromJson(Map<String, dynamic> json) =
+      _$TokenCountItemImpl.fromJson;
+
+  @override
+
+  /// Описание того, какая информация содержится в объекте.
+  String get object;
+  @override
+
+  /// Количество токенов в соответствующей строке.
+  @JsonKey(includeIfNull: false)
+  int? get tokens;
+  @override
+
+  /// Количество символов в соответствующей строке.
+  @JsonKey(includeIfNull: false)
+  int? get characters;
+  @override
+  @JsonKey(ignore: true)
+  _$$TokenCountItemImplCopyWith<_$TokenCountItemImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 Embedding _$EmbeddingFromJson(Map<String, dynamic> json) {
   return _Embedding.fromJson(json);
 }
@@ -4214,7 +4422,7 @@ mixin _$EmbeddingDataInner {
   String get object => throw _privateConstructorUsedError;
 
   /// Массив чисел, представляющих значения эмбеддинга для предоставленного текста.
-  List<int> get embedding => throw _privateConstructorUsedError;
+  List<double> get embedding => throw _privateConstructorUsedError;
 
   /// Индекс соответствующий индексу текста, полученного в массиве `input` запроса.
   int get index => throw _privateConstructorUsedError;
@@ -4236,7 +4444,7 @@ abstract class $EmbeddingDataInnerCopyWith<$Res> {
   @useResult
   $Res call(
       {String object,
-      List<int> embedding,
+      List<double> embedding,
       int index,
       EmbeddingDataInnerUsage usage});
 
@@ -4269,7 +4477,7 @@ class _$EmbeddingDataInnerCopyWithImpl<$Res, $Val extends EmbeddingDataInner>
       embedding: null == embedding
           ? _value.embedding
           : embedding // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<double>,
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -4300,7 +4508,7 @@ abstract class _$$EmbeddingDataInnerImplCopyWith<$Res>
   @useResult
   $Res call(
       {String object,
-      List<int> embedding,
+      List<double> embedding,
       int index,
       EmbeddingDataInnerUsage usage});
 
@@ -4332,7 +4540,7 @@ class __$$EmbeddingDataInnerImplCopyWithImpl<$Res>
       embedding: null == embedding
           ? _value._embedding
           : embedding // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<double>,
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -4350,7 +4558,7 @@ class __$$EmbeddingDataInnerImplCopyWithImpl<$Res>
 class _$EmbeddingDataInnerImpl extends _EmbeddingDataInner {
   const _$EmbeddingDataInnerImpl(
       {required this.object,
-      required final List<int> embedding,
+      required final List<double> embedding,
       required this.index,
       required this.usage})
       : _embedding = embedding,
@@ -4364,11 +4572,11 @@ class _$EmbeddingDataInnerImpl extends _EmbeddingDataInner {
   final String object;
 
   /// Массив чисел, представляющих значения эмбеддинга для предоставленного текста.
-  final List<int> _embedding;
+  final List<double> _embedding;
 
   /// Массив чисел, представляющих значения эмбеддинга для предоставленного текста.
   @override
-  List<int> get embedding {
+  List<double> get embedding {
     if (_embedding is EqualUnmodifiableListView) return _embedding;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_embedding);
@@ -4422,7 +4630,7 @@ class _$EmbeddingDataInnerImpl extends _EmbeddingDataInner {
 abstract class _EmbeddingDataInner extends EmbeddingDataInner {
   const factory _EmbeddingDataInner(
       {required final String object,
-      required final List<int> embedding,
+      required final List<double> embedding,
       required final int index,
       required final EmbeddingDataInnerUsage usage}) = _$EmbeddingDataInnerImpl;
   const _EmbeddingDataInner._() : super._();
@@ -4437,7 +4645,7 @@ abstract class _EmbeddingDataInner extends EmbeddingDataInner {
   @override
 
   /// Массив чисел, представляющих значения эмбеддинга для предоставленного текста.
-  List<int> get embedding;
+  List<double> get embedding;
   @override
 
   /// Индекс соответствующий индексу текста, полученного в массиве `input` запроса.

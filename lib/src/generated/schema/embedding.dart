@@ -62,7 +62,7 @@ class EmbeddingDataInner with _$EmbeddingDataInner {
     required String object,
 
     /// Массив чисел, представляющих значения эмбеддинга для предоставленного текста.
-    required List<int> embedding,
+    required List<double> embedding,
 
     /// Индекс соответствующий индексу текста, полученного в массиве `input` запроса.
     required int index,

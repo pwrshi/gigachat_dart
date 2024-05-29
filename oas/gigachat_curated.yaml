@@ -667,21 +667,24 @@ components:
           example: 1679471442
     TokensCount:
       type: array
-      items:
-        type: object
-        properties:
-          object:
-            type: string
-            description: Описание того, какая информация содержится в объекте.
-            default: tokens
-          tokens:
-            type: integer
-            description: Количество токенов в соответствующей строке.
-            example: 7
-          characters:
-            type: integer
-            description: Количество символов в соответствующей строке.
-            example: 36
+      items: 
+        $ref: '#/components/schemas/TokenCountItem'      
+    TokenCountItem:
+      type: object
+      properties:
+        object:
+          type: string
+          description: Описание того, какая информация содержится в объекте.
+          default: tokens
+        tokens:
+          type: integer
+          description: Количество токенов в соответствующей строке.
+          example: 7
+        characters:
+          type: integer
+          description: Количество символов в соответствующей строке.
+          example: 36
+
     Embedding:
       type: object
       required:
@@ -711,8 +714,8 @@ components:
                 type: array
                 description: Массив чисел, представляющих значения эмбеддинга для предоставленного текста. 
                 items:
-                  type: integer
-                  format: float
+                  type: number
+                  format: double
               index:
                 type: integer
                 description: Индекс соответствующий индексу текста, полученного в массиве `input` запроса.

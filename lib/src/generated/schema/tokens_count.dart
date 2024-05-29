@@ -9,4 +9,4 @@ part of gigachat_schema;
 // ==========================================
 
 /// No Description
-typedef TokensCount = List<Map<String, dynamic>>;
+typedef TokensCount = List<TokenCountItem>;

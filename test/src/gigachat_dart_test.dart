@@ -66,8 +66,8 @@ void main() {
   group('GigachatDart embedding', () {
     test('get embedding', () async {
       final r = await c.generateEmbedding(
-          request: EmbeddingsBody(input: ['Почему небо голубое']));
-      print(r);
+        request: EmbeddingsBody(input: ['Почему небо голубое']),
+      );
       expect(r.data.first.embedding, isNotNull);
     });
   });

@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: prefer_final_parameters, require_trailing_commas,
-// ignore_for_file:  non_constant_identifier_names, unnecessary_null_checks
+// ignore_for_file: prefer_final_parameters, require_trailing_commas, non_constant_identifier_names, unnecessary_null_checks
 
 part of 'schema.dart';
 
@@ -142,7 +141,7 @@ Map<String, dynamic> _$$ChatFunctionsInnerImplToJson(
 
 _$ChatFunctionsInnerParametersImpl _$$ChatFunctionsInnerParametersImplFromJson(
         Map<String, dynamic> json) =>
-    const _$ChatFunctionsInnerParametersImpl();
+    _$ChatFunctionsInnerParametersImpl();
 
 Map<String, dynamic> _$$ChatFunctionsInnerParametersImplToJson(
         _$ChatFunctionsInnerParametersImpl instance) =>
@@ -167,7 +166,7 @@ Map<String, dynamic> _$$ChatFunctionsInnerFewShotExamplesInnerImplToJson(
 _$ChatFunctionsInnerReturnParametersImpl
     _$$ChatFunctionsInnerReturnParametersImplFromJson(
             Map<String, dynamic> json) =>
-        const _$ChatFunctionsInnerReturnParametersImpl();
+        _$ChatFunctionsInnerReturnParametersImpl();
 
 Map<String, dynamic> _$$ChatFunctionsInnerReturnParametersImplToJson(
         _$ChatFunctionsInnerReturnParametersImpl instance) =>
@@ -176,7 +175,7 @@ Map<String, dynamic> _$$ChatFunctionsInnerReturnParametersImplToJson(
 _$ChatFunctionsInnerFewShotExamplesInnerParamsImpl
     _$$ChatFunctionsInnerFewShotExamplesInnerParamsImplFromJson(
             Map<String, dynamic> json) =>
-        const _$ChatFunctionsInnerFewShotExamplesInnerParamsImpl();
+        _$ChatFunctionsInnerFewShotExamplesInnerParamsImpl();
 
 Map<String, dynamic> _$$ChatFunctionsInnerFewShotExamplesInnerParamsImplToJson(
         _$ChatFunctionsInnerFewShotExamplesInnerParamsImpl instance) =>
@@ -417,6 +416,30 @@ Map<String, dynamic> _$$TokenImplToJson(_$TokenImpl instance) {
   return val;
 }
 
+_$TokenCountItemImpl _$$TokenCountItemImplFromJson(Map<String, dynamic> json) =>
+    _$TokenCountItemImpl(
+      object: json['object'] as String? ?? 'tokens',
+      tokens: (json['tokens'] as num?)?.toInt(),
+      characters: (json['characters'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$$TokenCountItemImplToJson(
+    _$TokenCountItemImpl instance) {
+  final val = <String, dynamic>{
+    'object': instance.object,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('tokens', instance.tokens);
+  writeNotNull('characters', instance.characters);
+  return val;
+}
+
 _$EmbeddingImpl _$$EmbeddingImplFromJson(Map<String, dynamic> json) =>
     _$EmbeddingImpl(
       object: json['object'] as String,
@@ -447,7 +470,7 @@ _$EmbeddingDataInnerImpl _$$EmbeddingDataInnerImplFromJson(
     _$EmbeddingDataInnerImpl(
       object: json['object'] as String,
       embedding: (json['embedding'] as List<dynamic>)
-          .map((e) => (e as num).toInt())
+          .map((e) => (e as num).toDouble())
           .toList(),
       index: (json['index'] as num).toInt(),
       usage: EmbeddingDataInnerUsage.fromJson(
@@ -538,7 +561,7 @@ Map<String, dynamic> _$$FunctionCallCustomFunctionImplToJson(
 _$FunctionCallCustomFunctionPartialArgumentsImpl
     _$$FunctionCallCustomFunctionPartialArgumentsImplFromJson(
             Map<String, dynamic> json) =>
-        const _$FunctionCallCustomFunctionPartialArgumentsImpl();
+        _$FunctionCallCustomFunctionPartialArgumentsImpl();
 
 Map<String, dynamic> _$$FunctionCallCustomFunctionPartialArgumentsImplToJson(
         _$FunctionCallCustomFunctionPartialArgumentsImpl instance) =>

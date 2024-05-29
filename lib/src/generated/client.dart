@@ -280,7 +280,7 @@ class GigachatClient {
         if (body != null) {
           switch (requestType) {
             case 'application/x-www-form-urlencoded':
-              List<String> parts = [];
+              var parts = <String>[];
               Map<String, String> bodyMap =
                   Map<String, String>.from(body as Map<dynamic, dynamic>);
 
@@ -493,8 +493,9 @@ class GigachatClient {
   /// `request`: No description
   ///
   /// `POST` `https://gigachat.devices.sberbank.ru/api/v1/tokens/count`
-  // Future<TokensCount> postTokensCount({TokensCountBody? request,}) async {
-
+  // Future<TokensCount> postTokensCount({
+  //   TokensCountBody? request,
+  // }) async {
   //   final r = await makeRequest(
   //     baseUrl: 'https://gigachat.devices.sberbank.ru/api/v1',
   //     path: '/tokens/count',
@@ -503,7 +504,6 @@ class GigachatClient {
   //     requestType: 'application/json',
   //     responseType: 'application/json',
   //     body: request,
-
   //   );
   //   return TokensCount.fromJson(_jsonDecode(r));
   // }

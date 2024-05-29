@@ -50,7 +50,7 @@ class GigachatClient {
     );
   }
 
-  /// Used for versioning between corporates or individuals,
+  /// Used for versioning between corporate or individuals,
   /// GIGACHAT_API_CORP and GIGACHAT_API_PERS, respectively
   late final String scope;
   final _uuid = Uuid(goptions: GlobalOptions(CryptoRNG()));
@@ -84,7 +84,7 @@ class GigachatClient {
     _client.bearerToken = token.accessToken!;
   }
 
-  /// method check if token is null or exired then fetch new
+  /// method check if token is null or expired then fetch new
   @protected
   Future<void> checkAccessTokenValidity() async {
     if (accessToken?.expiresAt == null ||
@@ -94,7 +94,7 @@ class GigachatClient {
     }
   }
 
-  /// return list of aviable models
+  /// return list of available models
   Future<Models> getModels() async {
     await checkAccessTokenValidity();
     return _client.getModels();

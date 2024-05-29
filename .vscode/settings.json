@@ -1,5 +1,10 @@
 {
     "yaml.schemas": {
         "openapi:v3": "file:///home/pwrshi/pets/gigachat_dart/oas/gigachat_offical.yaml"
-    }
+    },
+    "cSpell.words": [
+        "goptions",
+        "ndjson",
+        "PERS"
+    ]
 }

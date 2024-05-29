@@ -2,6 +2,7 @@
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
+[![Coverage](https://raw.githubusercontent.com/pwrshi/gigachat_dart/main/coverage_badge.svg)]()
 
 # gigachat_dart
 
@@ -9,12 +10,15 @@ Welcome to gigachat_dart, a Dart implementation of the GigaChat API. This projec
 
 ## Features
 
-- [x] Completion Stream
+- [x] Completion via Stream
 - [x] Get list of models
 - [x] Auto refresh token
-- [x] Completion Future
-- [ ] Get image by id (not tested)
-- [ ] Embeddings (not tested)
+- [x] Completion via Future
+- [x] Embeddings
+- [ ] Generate images (not tested)
+- [ ] Get images (not tested)
+- [ ] Functions (not tested)
+
 
 
 ## Installation
@@ -23,7 +27,7 @@ To install gigachat_dart, add the following dependency to your `pubspec.yaml` fi
 
 ```yaml
 dependencies:
-  gigachat_dart: ^0.1.0
+  gigachat_dart: ^0.1.2
 ```
 
 ## Usage
@@ -71,6 +75,10 @@ final r = await c.generateChatCompletion(
     Message(role: MessageRole.user, content: "Tell me more")
 ])); // generated text
 ```
+
+## Examples
+
+You can to read more examples in tests
 
 
 ## License
