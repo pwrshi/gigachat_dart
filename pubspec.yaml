@@ -31,4 +31,4 @@ dev_dependencies:
       url: https://github.com/tazatechnology/openapi_spec.git
       ref: 815b1cba74ef4519e36af02b78d237fffedc186d
   test: ^1.25.2
-  very_good_analysis: 6.0.0
+  very_good_analysis: 7.0.0
